@@ -322,7 +322,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <p>A partir de 30 pessoas, o grupo ganha ainda um <strong>Workshop Extra exclusivo com certificado impresso</strong>, que não existe na grade aberta do evento.</p>
         <p>E os sorteios do grupo acontecem <strong>entre vocês</strong>: upgrade de ingresso, vaga no Pilates Legend, kit Equipilates, FREE PASS VOLL. Cada prêmio tem 1 ganhador por grupo, e quanto maior o grupo, mais sorteios entram na roda.</p>
       </div>
-      <div class="mc-foto"><img src="wsimagem.png" alt="Workshop prático do Encontro Brasileiro de Pilates"></div>
+      <div class="mc-foto"><img src="wsimagem.webp" alt="Workshop prático do Encontro Brasileiro de Pilates"></div>
     </div>
   </div>
 </section>
@@ -414,7 +414,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <div class="prep">
       <div class="prep-item"><div class="n">1</div><div><h3>Decida quem lidera</h3><p>O grupo tem 1 responsável, e é ele quem ganha os benefícios de líder. Se a turma já tem alguém que junta todo mundo, é essa pessoa.</p></div></div>
       <div class="prep-item"><div class="n">2</div><div><h3>Crie o grupo no WhatsApp</h3><p>Chame quem topa ir. Amigos de formação, colegas, a galera da região. Não precisa ser da mesma cidade nem do mesmo Studio.</p></div></div>
-      <div class="prep-item"><div class="n">3</div><div><h3>Mande a imagem do grupo pra turma</h3><p>Baixe a imagem pronta com tudo o que o grupo ganha e envie no WhatsApp. Quanto mais gente entender o que ganha, mais rápido o grupo passa de 10, de 20, de 30.</p><a class="btn-mini" href="beneficios-do-grupo-whatsapp.png" download="beneficios-do-grupo-whatsapp.png">Baixar imagem para o WhatsApp</a></div></div>
+      <div class="prep-item"><div class="n">3</div><div><h3>Mande a imagem do grupo pra turma</h3><p>Baixe a imagem pronta com tudo o que o grupo ganha e envie no WhatsApp. Quanto mais gente entender o que ganha, mais rápido o grupo passa de 10, de 20, de 30.</p><a class="btn-mini" href="beneficios-do-grupo-whatsapp.webp" download="beneficios-do-grupo-whatsapp.webp">Baixar imagem para o WhatsApp</a></div></div>
       <div class="prep-item"><div class="n">4</div><div><h3>Cada um define o ingresso</h3><p>Standard, Premium ou VIP, cada pessoa escolhe e compra o próprio, no dia 10 ou depois. O grupo continua crescendo e acumulando benefícios enquanto houver inscrições.</p></div></div>
     </div>
   </div>
@@ -514,7 +514,7 @@ GRUPO.forEach(b=>{
 document.querySelectorAll("a[download]").forEach(el=>{
   el.addEventListener("click", async e=>{
     e.preventDefault();
-    const nome = el.getAttribute("download") || "beneficios-do-grupo-whatsapp.png";
+    const nome = el.getAttribute("download") || "beneficios-do-grupo-whatsapp.webp";
     try{
       const blob = await fetch(el.href).then(r=>{ if(!r.ok) throw new Error(); return r.blob(); });
       const url = URL.createObjectURL(blob);
