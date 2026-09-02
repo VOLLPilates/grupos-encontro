@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Você está num grupo | 12º Encontro Brasileiro de Pilates 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0D24;
+  --bg2:#121838;
+  --card:#171D42;
+  --line:rgba(255,255,255,.10);
+  --text:#FFFFFF;
+  --muted:#B7BDD6;
+  --cyan:#4FE0E8;
+  --purple:#6B3DF5;
+  --purple2:#8A5CFF;
+  --gold:#E2A63C;
+  --green:#5FE3C0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Montserrat',system-ui,sans-serif;font-size:16px;line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-weight:800;letter-spacing:-.01em;line-height:1.1}
+.cyan{color:var(--cyan)}
+.gold{color:var(--gold)}
+.green{color:var(--green)}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.btn{display:inline-block;background:var(--purple);color:#fff;font-weight:700;font-size:15px;padding:16px 32px;border-radius:12px;text-decoration:none;border:none;cursor:pointer;transition:transform .15s, box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(107,61,245,.45)}
+.btn.gold{background:var(--gold);color:#1a1200}
+.btn.gold:hover{box-shadow:0 10px 26px rgba(226,166,60,.4)}
+section{padding:104px 0;position:relative}
+section + section{border-top:1px solid var(--line)}
+@media (max-width:760px){section{padding:72px 0}}
+.eyebrow::before{content:"";display:block;width:56px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--purple),var(--cyan));margin-bottom:18px}
+.hero .eyebrow::before{display:none}
+.eyebrow .num{color:var(--cyan);font-weight:800;margin-right:12px;font-size:14px}
+.centro .eyebrow::before{margin-left:auto;margin-right:auto}
+.dobra-teal{background:linear-gradient(180deg,#0E2E3A 0%,var(--bg) 100%)}
+.dobra-roxa{background:linear-gradient(180deg,#1A1242 0%,var(--bg) 100%)}
+.faq{background:var(--bg2)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(10,13,36,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:70px;gap:14px}
+nav .logo{font-weight:900;font-size:18px}
+nav .logo span{color:var(--cyan)}
+nav .badge-data{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--green);border:1px solid rgba(95,227,192,.5);padding:9px 16px;border-radius:999px;white-space:nowrap}
+
+/* hero */
+.hero{padding:96px 0 80px;background:
+  radial-gradient(900px 500px at 85% 10%, rgba(107,61,245,.35), transparent 60%),
+  radial-gradient(700px 400px at 10% 90%, rgba(79,224,232,.18), transparent 60%),
+  var(--bg);}
+.hero h1{font-size:clamp(38px,6vw,72px);max-width:860px}
+.hero p.sub{font-size:19px;color:var(--muted);max-width:640px;margin-top:22px;font-weight:500}
+.hero p.sub strong{color:#fff}
+.hero .acoes{margin-top:34px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.hero .nota{font-size:14px;color:var(--muted)}
+.icones{display:flex;gap:28px;flex-wrap:wrap;margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
+.icones div{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.icones i{width:10px;height:10px;border-radius:50%;background:var(--cyan);display:inline-block}
+
+/* frase-chave repetida */
+.mantra{margin-top:44px;background:linear-gradient(90deg,rgba(107,61,245,.35),rgba(79,224,232,.18));border:1px solid var(--line);border-radius:18px;padding:26px 30px;font-size:18px;font-weight:600}
+.mantra strong{color:var(--cyan)}
+
+/* passos */
+.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+@media (max-width:860px){.passos{grid-template-columns:1fr}}
+.passo{border-top:3px solid var(--cyan);padding-top:22px}
+.passo .n{font-size:52px;font-weight:900;color:var(--cyan);line-height:1}
+.passo h3{font-size:19px;margin:12px 0 10px}
+.passo p{color:var(--muted);font-size:15px}
+.passo p strong{color:#fff}
+
+/* seção interativa */
+.sim{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sim-intro{color:var(--muted);font-size:17px;max-width:700px;margin-top:16px}
+.sim-intro strong{color:var(--cyan)}
+.sim-box{margin-top:44px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:40px}
+@media (max-width:760px){.sim-box{padding:26px 20px}}
+.input-label{font-size:15px;font-weight:700;color:#fff;margin-bottom:14px;text-align:center}
+.input-row{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
+.stepper{width:58px;height:58px;border-radius:14px;border:1px solid var(--line);background:#0E1230;color:#fff;font-size:30px;font-weight:900;cursor:pointer;line-height:1;transition:border-color .15s, transform .1s}
+.stepper:hover{border-color:var(--purple2)}
+.stepper:active{transform:scale(.94)}
+#qtd{width:150px;text-align:center;background:#0E1230;border:2px solid var(--purple2);border-radius:16px;padding:14px 8px;color:#fff;font-family:inherit;font-size:52px;font-weight:900;-moz-appearance:textfield}
+#qtd::-webkit-outer-spin-button,#qtd::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+#qtd:focus{outline:none;border-color:var(--cyan)}
+.presets{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.preset{background:#0E1230;border:1px solid var(--line);color:var(--muted);font-family:inherit;font-weight:700;font-size:14px;padding:9px 18px;border-radius:999px;cursor:pointer;transition:border-color .15s,color .15s}
+.preset:hover{border-color:var(--cyan);color:#fff}
+.status-box{margin-top:34px;text-align:center;padding:24px;border-radius:16px;background:#0E1230;border:1px solid var(--line)}
+.status-box .tier{font-size:clamp(24px,4vw,34px);font-weight:900;color:var(--cyan)}
+.status-box .prox{font-size:16px;color:var(--gold);font-weight:600;margin-top:8px}
+.status-box .liberados{font-size:15px;color:var(--muted);margin-top:8px}
+.status-box .liberados b{color:var(--green)}
+.sim-lista-titulo{font-size:17px;margin:38px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.ben{display:flex;gap:12px;align-items:flex-start;padding:11px 0;font-size:15px;font-weight:500;transition:opacity .2s;border-bottom:1px solid rgba(255,255,255,.05)}
+.ben .chk{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;margin-top:1px}
+.ben.on .chk{background:var(--green);color:#052a1f}
+.ben.off{opacity:.4}
+.ben.off .chk{border:1.5px solid var(--muted)}
+.tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:rgba(226,166,60,.18);color:var(--gold);margin-left:8px;vertical-align:middle}
+.tag.ok{background:rgba(95,227,192,.15);color:var(--green)}
+.sim-aviso{margin-top:24px;font-size:14px;color:var(--muted)}
+
+/* master class */
+.mc{background:linear-gradient(180deg,#1A1242 0%,var(--bg) 100%)}
+.mc-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-top:36px}
+@media (max-width:860px){.mc-grid{grid-template-columns:1fr}}
+.mc-foto{aspect-ratio:4/3;border-radius:18px;border:1px solid var(--line);overflow:hidden}
+.mc-foto img{width:100%;height:100%;object-fit:cover;display:block}
+.mc p{color:var(--muted);margin-bottom:16px;font-size:16px}
+.mc p strong{color:#fff}
+
+/* tabela */
+.tabela-wrap{margin-top:44px;overflow-x:auto;border-radius:18px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;min-width:820px;font-size:14px}
+th{background:#1B2250;padding:18px 14px;text-align:center;font-weight:700;font-size:13px;vertical-align:bottom}
+th:first-child{text-align:left;background:#141A3F;font-size:15px}
+th .faixa{display:block;font-size:20px;font-weight:900;color:var(--cyan)}
+th.top .faixa{color:var(--gold)}
+th.top{background:linear-gradient(180deg,#3a2a0a,#1B2250)}
+td{padding:14px;border-top:1px solid var(--line);text-align:center;font-weight:600;color:#E6E9F5}
+td:first-child{text-align:left;font-weight:600;color:#fff;background:#121838}
+tr:nth-child(even) td{background:#151B40}
+tr:nth-child(even) td:first-child{background:#101636}
+td.top{background:rgba(226,166,60,.07)}
+tr:nth-child(even) td.top{background:rgba(226,166,60,.11)}
+td .v{color:var(--green);font-size:18px;font-weight:900}
+.legenda{margin-top:16px;font-size:13px;color:var(--muted)}
+
+/* destaque 40 */
+.mega40{background:
+  radial-gradient(900px 500px at 50% 0%, rgba(226,166,60,.30), transparent 60%),
+  linear-gradient(180deg,#251a06 0%,var(--bg) 70%);
+  border-top:1px solid rgba(226,166,60,.4);border-bottom:1px solid rgba(226,166,60,.4);text-align:center}
+.mega40 .selo{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#1a1200;background:var(--gold);padding:10px 20px;border-radius:999px}
+.mega40 h2{font-size:clamp(40px,8vw,92px);line-height:.98;margin-top:26px}
+.mega40 .num40{font-size:clamp(90px,20vw,220px);font-weight:900;color:var(--gold);line-height:.9;margin:10px 0}
+.mega40 p.lead{font-size:20px;color:#fff;max-width:720px;margin:20px auto 0;font-weight:600}
+.mega40 p.lead strong{color:var(--gold)}
+.mega40 .urg{margin-top:30px;display:inline-block;font-size:18px;font-weight:800;color:var(--gold);border:1px solid rgba(226,166,60,.55);padding:16px 28px;border-radius:16px;background:rgba(226,166,60,.08)}
+.mega40 .sub40{color:var(--muted);font-size:15px;max-width:640px;margin:26px auto 0}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--line);padding:20px 4px}
+.faq details:first-of-type{border-top:1px solid var(--line);margin-top:36px}
+.faq summary{font-weight:700;font-size:17px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:24px;color:var(--cyan);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:12px;color:var(--muted);font-size:15px;max-width:760px}
+
+/* fecho */
+.fecho{background:radial-gradient(800px 400px at 50% 20%, rgba(107,61,245,.4), transparent 60%), var(--bg);padding:120px 0}
+.fecho-h2{font-size:clamp(38px,7vw,84px);line-height:1}
+
+footer{padding:36px 0;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">12º Encontro Brasileiro de Pilates <span>| Meu Grupo</span></div>
+    <span class="badge-data">Você faz parte de um grupo</span>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Página do integrante do grupo · 27, 28 e 29 de agosto de 2027 · Expo Dom Pedro, Campinas</p>
+    <h1>VOCÊ ESTÁ NUM GRUPO DO ENCONTRO.<br><span class="cyan">VEJA TUDO O QUE VOCÊ GANHA POR ISSO.</span></h1>
+    <p class="sub">Fazer parte de um grupo é simples: <strong>você compra o seu ingresso</strong> normalmente e, por estar no grupo, ganha desconto, uma <strong>Master Class exclusiva</strong>, sorteios e muito mais. E o melhor: <strong>quanto mais gente entra no grupo, mais TODO MUNDO ganha, inclusive você.</strong></p>
+    <div class="acoes">
+      <a class="btn" href="#calcular">Ver o que meu grupo já ganhou</a>
+      <span class="nota">Role a página ou clique acima. É rapidinho de entender.</span>
+    </div>
+    <div class="icones">
+      <div><i></i>Cada um compra o seu</div>
+      <div><i></i>10% de desconto</div>
+      <div><i></i>Master Class exclusiva</div>
+      <div><i></i>Sorteios só do grupo</div>
+      <div><i></i>Todos ganham juntos</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">01</span>O mais importante de tudo</p>
+    <h2>Só existe uma regra pra entender:<br><span class="cyan">quanto mais gente no grupo, mais cada um ganha.</span></h2>
+    <div class="mantra">Você <strong>não paga pelos outros</strong> e ninguém paga por você. Cada pessoa compra o próprio ingresso. O que muda é: a cada nova pessoa que entra no grupo, <strong>novos prêmios são liberados pra todo mundo</strong> — e você recebe também, mesmo que já tenha comprado.</div>
+  </div>
+</section>
+
+<section class="dobra-teal">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">02</span>Como funciona pra você</p>
+    <h2>Três passos. Só isso.<br><span class="cyan">Não tem segredo nenhum.</span></h2>
+    <div class="passos">
+      <div class="passo">
+        <div class="n">1</div>
+        <h3>Compre seu ingresso com o código do grupo</h3>
+        <p>Quem organiza o grupo te passa o <strong>código do grupo</strong>. Você usa esse código na hora de comprar. Pode ser Standard, Premium ou VIP — <strong>você escolhe o seu</strong> e ainda ganha 10% de desconto.</p>
+      </div>
+      <div class="passo">
+        <div class="n">2</div>
+        <h3>Você paga só o SEU ingresso</h3>
+        <p>Ninguém precisa adiantar dinheiro por ninguém. <strong>Cada pessoa paga o próprio ingresso.</strong> Simples assim.</p>
+      </div>
+      <div class="passo">
+        <div class="n">3</div>
+        <h3>A cada pessoa nova, o grupo ganha mais</h3>
+        <p>Quando o grupo passa de 10, de 20, de 30 e de 40 pessoas, <strong>novos prêmios são liberados pra todos</strong> — inclusive pra quem comprou primeiro. Por isso vale a pena chamar mais gente.</p>
+      </div>
+    </div>
+    <div class="mantra">Resumindo de novo, porque é o que mais importa: <strong>cada um compra o seu, e quanto mais gente entrar, mais prêmios pra todo o grupo.</strong></div>
+  </div>
+</section>
+
+<section class="sim" id="calcular">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">03</span>Descubra o que seu grupo já ganhou</p>
+    <h2>Escreva quantas pessoas já tem no seu grupo<br><span class="cyan">e veja na hora o que vocês desbloquearam.</span></h2>
+    <p class="sim-intro">É só <strong>digitar o número de pessoas</strong> do seu grupo no campo abaixo. Os prêmios verdes com o ✓ já estão liberados. Os apagados ainda não — falta chamar mais gente pra desbloquear.</p>
+    <div class="sim-box">
+      <div class="input-label">Quantas pessoas já tem no seu grupo?</div>
+      <div class="input-row">
+        <button class="stepper" id="menos" aria-label="Diminuir">−</button>
+        <input type="number" id="qtd" min="0" max="200" value="10" inputmode="numeric" aria-label="Quantidade de pessoas no grupo">
+        <button class="stepper" id="mais" aria-label="Aumentar">+</button>
+      </div>
+      <div class="presets">
+        <button class="preset" data-n="5">5 pessoas</button>
+        <button class="preset" data-n="10">10 pessoas</button>
+        <button class="preset" data-n="20">20 pessoas</button>
+        <button class="preset" data-n="30">30 pessoas</button>
+        <button class="preset" data-n="40">40 pessoas</button>
+      </div>
+
+      <div class="status-box">
+        <div class="tier" id="tier">Grupo de 10 a 19</div>
+        <div class="prox" id="prox"></div>
+        <div class="liberados" id="liberados"></div>
+      </div>
+
+      <h3 class="sim-lista-titulo">Prêmios que TODO o grupo ganha <span id="cnt-grupo" style="color:var(--muted);font-weight:500"></span></h3>
+      <div id="lista-grupo"></div>
+
+      <p class="sim-aviso">Como funciona: cada faixa mantém todos os prêmios das faixas anteriores e libera novos. Os prêmios não se multiplicam por faixa. A única coisa que aumenta em quantidade são as cortesias: 1 ingresso a cada 10 pessoas, até 4. O grupo pode passar de 40 sem limite. Os itens marcados como <span class="tag">Sorteio</span> têm 1 ganhador por grupo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mc">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">04</span>O melhor prêmio do grupo</p>
+    <h2>Uma sala fechada. Sua turma.<br><span class="cyan">E um palestrante do Encontro só pra vocês.</span></h2>
+    <div class="mc-grid">
+      <div>
+        <p>Todo grupo, a partir de <strong>10 pessoas</strong>, ganha uma <strong>Master Class prática exclusiva</strong> com um palestrante do Encontro. Sem plateia de mil pessoas, sem fila pra perguntar. É a aula que você vai lembrar pra sempre.</p>
+        <p>Quando o grupo chega a <strong>30 pessoas</strong>, vocês ganham também um <strong>Workshop Extra exclusivo com certificado impresso</strong>, que não existe na grade normal do evento.</p>
+        <p>E os sorteios do grupo acontecem <strong>só entre vocês</strong>: upgrade de ingresso, vaga no Pilates Legend, kit Equipilates, FREE PASS VOLL e mais. Cada prêmio tem 1 ganhador por grupo — e quanto maior o grupo, mais sorteios entram na roda.</p>
+      </div>
+      <div class="mc-foto"><img src="/wsimagem.webp" alt="Workshop prático do Encontro Brasileiro de Pilates"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">05</span>Tabela completa</p>
+    <h2>Tudo o que o grupo ganha,<br><span class="cyan">degrau por degrau.</span></h2>
+    <div class="tabela-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Prêmios para todos do grupo</th>
+            <th><span class="faixa">10 a 19</span>pessoas</th>
+            <th><span class="faixa">20 a 29</span>pessoas</th>
+            <th><span class="faixa">30 a 39</span>pessoas</th>
+            <th class="top"><span class="faixa">40+</span>pessoas</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-body"></tbody>
+      </table>
+    </div>
+    <p class="legenda">Cada faixa mantém os prêmios da anterior e libera novos; os valores são o total da faixa, não a soma das faixas. As cortesias aumentam 1 a cada 10 pessoas, até 4. Itens marcados como sorteio têm 1 ganhador por grupo.</p>
+  </div>
+</section>
+
+<section class="mega40">
+  <div class="wrap">
+    <span class="selo">O prêmio mais disputado</span>
+    <h2>O PRIMEIRO GRUPO A CHEGAR EM</h2>
+    <div class="num40">40</div>
+    <p class="lead">ganha um <strong>lugar reservado só pro grupo</strong> na abertura e no encerramento do Encontro. Um espaço exclusivo, com o nome de vocês, na frente de tudo.</p>
+    <div class="urg">Só existe UM primeiro. Depois que outro grupo chegar aos 40, essa vaga já era.</div>
+    <p class="sub40">Por isso, se vocês estão perto dos 40, não deixem pra depois: chamem a galera que ainda falta e garantam esse lugar antes de qualquer outro grupo.</p>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">06</span>Perguntas frequentes</p>
+    <h2>As dúvidas de quem entra num grupo</h2>
+    <details open><summary>Eu preciso pagar pelos outros do grupo?</summary><p>Não. Cada pessoa compra e paga o próprio ingresso. Você só paga o seu.</p></details>
+    <details><summary>Posso escolher qualquer ingresso (Standard, Premium ou VIP)?</summary><p>Pode. Cada um escolhe o ingresso que quiser. O desconto de 10% vale pra qualquer categoria, e todos contam do mesmo jeito pro tamanho do grupo.</p></details>
+    <details><summary>Como eu compro com o código do grupo?</summary><p>Quem organiza o grupo te passa o código. Na hora de comprar o ingresso, você usa esse código. Pronto: você já entra na contagem do grupo e ganha os prêmios.</p></details>
+    <details><summary>Se entrar mais gente depois que eu comprar, eu ganho os prêmios novos também?</summary><p>Sim! Quando o grupo cresce e libera novos prêmios, todo mundo ganha, inclusive quem comprou primeiro. Por isso vale a pena chamar mais gente.</p></details>
+    <details><summary>Posso chamar mais pessoas pro grupo?</summary><p>Pode e deve. Quanto mais gente entrar, mais prêmios são liberados pra todos. Chame amigos de formação, colegas de trabalho e a galera da sua região.</p></details>
+    <details><summary>E se alguém do grupo cancelar?</summary><p>O grupo é recalculado pelo total de pessoas confirmadas. Mais gente, mais prêmios; menos gente, menos prêmios.</p></details>
+    <details><summary>Como funcionam os sorteios?</summary><p>Cada sorteio tem 1 ganhador por grupo. Eles acontecem até 3 meses antes do Encontro, ou antes, se o grupo avisar que não vai entrar mais ninguém.</p></details>
+    <details><summary>O grupo precisa ser todo da mesma cidade ou do mesmo Studio?</summary><p>Não. O grupo pode ter gente de qualquer lugar. O que conta é o número de pessoas.</p></details>
+  </div>
+</section>
+
+<section class="fecho">
+  <div class="wrap centro" style="text-align:center">
+    <p class="eyebrow">Faça a sua parte</p>
+    <h2 class="fecho-h2">CHAME MAIS GENTE.<br><span class="cyan">TODO MUNDO GANHA JUNTO.</span></h2>
+    <p style="color:var(--muted);max-width:600px;margin:20px auto 0;font-size:18px">Você já entendeu: quanto maior o grupo, mais prêmios pra cada um. Manda essa página pra quem ainda não entrou e ajude seu grupo a subir de degrau.</p>
+    <a class="btn gold" href="https://encontropilates.com.br/" style="margin-top:36px">Ver o site do Encontro</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>12º Encontro Brasileiro de Pilates · 27, 28 e 29 de agosto de 2027 · Expo Dom Pedro, Campinas</span>
+    <span>Realizado pelo Grupo VOLL</span>
+  </div>
+</footer>
+
+<script>
+const GRUPO = [
+  {t:"10% de desconto em qualquer ingresso e boleto em até 10x", min:10},
+  {t:"Credenciamento exclusivo do grupo", min:10},
+  {t:"Ingressos Standard de cortesia", min:10, cortesia:true},
+  {t:"Master Class prática exclusiva para o grupo", min:10},
+  {t:"1 vaga para palestrar no Novos Talentos", min:10, sorteio:true},
+  {t:"Camiseta exclusiva do grupo", min:20},
+  {t:"R$ 300 na Pratyque", min:20, sorteio:true},
+  {t:"1 upgrade de inscrição para Premium", min:20, sorteio:true},
+  {t:"Entrada no Prêmio Contrology + Festa", min:20, sorteio:true},
+  {t:"1 kit de acessórios Equipilates", min:30, sorteio:true},
+  {t:"Workshop Extra exclusivo para o grupo, com certificado impresso", min:30},
+  {t:"1 vaga no Pilates Legend", min:30, sorteio:true},
+  {t:"1 KIT VIP", min:40, sorteio:true},
+  {t:"Visita ao backstage e à sala de descanso dos palestrantes, com foto oficial", min:40},
+  {t:"1 upgrade de inscrição para VIP", min:40, sorteio:true},
+  {t:"1 FREE PASS VOLL para todos os congressos VOLL Pilates Brasil", min:40, sorteio:true},
+];
+function cortesias(n){ return n>=40?4:n>=30?3:n>=20?2:n>=10?1:0; }
+function tierLabel(n){ return n>=40?"Grupo de 40 ou mais":n>=30?"Grupo de 30 a 39":n>=20?"Grupo de 20 a 29":n>=10?"Grupo de 10 a 19":"Ainda não chegou em 10"; }
+function proximo(n){
+  if(n<10) return "Faltam "+(10-n)+" pessoa"+((10-n)>1?"s":"")+" pra liberar o grupo e os primeiros prêmios";
+  if(n<20) return "Faltam "+(20-n)+" pessoa"+((20-n)>1?"s":"")+" pro próximo degrau";
+  if(n<30) return "Faltam "+(30-n)+" pessoa"+((30-n)>1?"s":"")+" pro próximo degrau";
+  if(n<40) return "Faltam "+(40-n)+" pessoa"+((40-n)>1?"s":"")+" pro degrau máximo (e o lugar reservado!)";
+  return "Vocês chegaram no degrau máximo! Todos os prêmios liberados.";
+}
+function render(n){
+  if(isNaN(n)||n<0) n=0;
+  document.getElementById("tier").textContent = tierLabel(n);
+  document.getElementById("prox").textContent = proximo(n);
+  let g="", on=0;
+  GRUPO.forEach(b=>{
+    const ok = n>=b.min; if(ok) on++;
+    let txt = b.t;
+    if(b.cortesia){ const c=cortesias(n); txt = ok ? (c+" ingresso"+(c>1?"s":"")+" Standard de cortesia") : "Ingressos Standard de cortesia"; }
+    g += `<div class="ben ${ok?"on":"off"}"><span class="chk">${ok?"✓":""}</span><span>${txt}${b.sorteio?'<span class="tag">Sorteio</span>':''}${!ok?'<span class="tag ok">a partir de '+b.min+'</span>':''}</span></div>`;
+  });
+  document.getElementById("lista-grupo").innerHTML = n<10
+    ? '<div class="ben off"><span class="chk"></span><span>Chegando a 10 pessoas, o grupo abre e libera todos os prêmios abaixo.</span></div>'+g
+    : g;
+  document.getElementById("cnt-grupo").textContent = n>=10 ? "("+on+" já liberados)" : "";
+  document.getElementById("liberados").innerHTML = n>=10 ? "Vocês já desbloquearam <b>"+on+" prêmio"+(on>1?"s":"")+"</b> pra todo o grupo." : "Ainda não é um grupo. Chame mais gente!";
+}
+
+const input = document.getElementById("qtd");
+function lerValor(){ let v = parseInt(input.value,10); return isNaN(v)?0:v; }
+function setValor(v){ if(v<0) v=0; input.value=v; render(v); }
+input.addEventListener("input", ()=>render(lerValor()));
+document.getElementById("mais").addEventListener("click", ()=>setValor(lerValor()+1));
+document.getElementById("menos").addEventListener("click", ()=>setValor(lerValor()-1));
+document.querySelectorAll(".preset").forEach(b=>{
+  b.addEventListener("click", ()=>setValor(parseInt(b.dataset.n,10)));
+});
+render(lerValor());
+
+/* tabela */
+const tb = document.getElementById("tabela-body");
+GRUPO.forEach(b=>{
+  let cells="";
+  [10,20,30,40].forEach((f,i)=>{
+    const ok = f>=b.min;
+    let v = ok ? '<span class="v">✓</span>' : '';
+    if(b.cortesia && ok) v = "Ganha "+cortesias(f)+" ingresso"+(cortesias(f)>1?"s":"")+" Standard";
+    if(b.min===10 && b.t.startsWith("10%")) v = "10% + boleto até 10x";
+    cells += `<td class="${i===3?"top":""}">${v}</td>`;
+  });
+  tb.innerHTML += `<tr><td>${b.t}${b.sorteio?'<span class="tag">Sorteio</span>':''}</td>${cells}</tr>`;
+});
+</script>
+</body>
+</html>
