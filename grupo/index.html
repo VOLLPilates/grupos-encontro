@@ -149,6 +149,18 @@ td .v{color:var(--green);font-size:18px;font-weight:900}
 .mega40 .urg{margin-top:30px;display:inline-block;font-size:18px;font-weight:800;color:var(--gold);border:1px solid rgba(226,166,60,.55);padding:16px 28px;border-radius:16px;background:rgba(226,166,60,.08)}
 .mega40 .sub40{color:var(--muted);font-size:15px;max-width:640px;margin:26px auto 0}
 
+/* já se inscreveu individualmente (promo com prazo) */
+.indiv{background:linear-gradient(180deg,#0E2E3A 0%,var(--bg) 100%)}
+.indiv .lead{color:var(--muted);font-size:17px;max-width:740px;margin-top:16px}
+.indiv .lead strong{color:var(--cyan)}
+.indiv .prazo{display:inline-block;margin-top:20px;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(226,166,60,.5);padding:9px 16px;border-radius:999px}
+.premios-ind{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
+@media (max-width:760px){.premios-ind{grid-template-columns:1fr}}
+.premios-ind li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:15px;font-weight:600;display:flex;gap:12px;align-items:flex-start}
+.premios-ind li::before{content:"★";color:var(--gold);font-size:16px;line-height:1.5;flex-shrink:0}
+.indiv .nota-promo{margin-top:28px;font-size:14px;color:var(--muted);border-left:3px solid var(--gold);padding:6px 0 6px 16px;max-width:740px}
+.indiv .nota-promo strong{color:#fff}
+
 /* faq */
 .faq details{border-bottom:1px solid var(--line);padding:20px 4px}
 .faq details:first-of-type{border-top:1px solid var(--line);margin-top:36px}
@@ -209,8 +221,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <div class="passos">
       <div class="passo">
         <div class="n">1</div>
-        <h3>Compre seu ingresso com o código do grupo</h3>
-        <p>Quem organiza o grupo te passa o <strong>código do grupo</strong>. Você usa esse código na hora de comprar. Pode ser Standard, Premium ou VIP — <strong>você escolhe o seu</strong> e ainda ganha 10% de desconto.</p>
+        <h3>Compre seu ingresso pelo link do grupo</h3>
+        <p>Quem organiza o grupo te manda um <strong>link do grupo</strong>. Você compra o seu ingresso por esse link — <strong>não precisa digitar código nenhum</strong>. Pode ser Standard, Premium ou VIP: <strong>você escolhe o seu</strong> e ainda ganha 10% de desconto.</p>
       </div>
       <div class="passo">
         <div class="n">2</div>
@@ -256,7 +268,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <h3 class="sim-lista-titulo">Prêmios que TODO o grupo ganha <span id="cnt-grupo" style="color:var(--muted);font-weight:500"></span></h3>
       <div id="lista-grupo"></div>
 
-      <p class="sim-aviso">Como funciona: cada faixa mantém todos os prêmios das faixas anteriores e libera novos. Os prêmios não se multiplicam por faixa. A única coisa que aumenta em quantidade são as cortesias: 1 ingresso a cada 10 pessoas, até 4. O grupo pode passar de 40 sem limite. Os itens marcados como <span class="tag">Sorteio</span> têm 1 ganhador por grupo.</p>
+      <p class="sim-aviso">Como funciona: cada faixa mantém todos os prêmios das faixas anteriores e libera novos. Os prêmios não se multiplicam por faixa. A única coisa que aumenta em quantidade são as cortesias: 1 ingresso a cada 10 pessoas, até 4 — e <strong>essas cortesias ficam com quem organiza o grupo</strong>, que decide o que fazer com elas (sortear, presentear, doar, etc.). O grupo pode passar de 40 sem limite. Os itens marcados como <span class="tag">Sorteio</span> têm 1 ganhador por grupo.</p>
     </div>
   </div>
 </section>
@@ -294,7 +306,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <tbody id="tabela-body"></tbody>
       </table>
     </div>
-    <p class="legenda">Cada faixa mantém os prêmios da anterior e libera novos; os valores são o total da faixa, não a soma das faixas. As cortesias aumentam 1 a cada 10 pessoas, até 4. Itens marcados como sorteio têm 1 ganhador por grupo.</p>
+    <p class="legenda">Cada faixa mantém os prêmios da anterior e libera novos; os valores são o total da faixa, não a soma das faixas. As cortesias aumentam 1 a cada 10 pessoas, até 4, e ficam com quem organiza o grupo, que decide o que fazer com elas (sortear, presentear, doar, etc.). Itens marcados como sorteio têm 1 ganhador por grupo.</p>
   </div>
 </section>
 
@@ -309,13 +321,39 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </section>
 
+<!-- ===== SEÇÃO PROMO COM PRAZO: válida até 02/09, resultado 07/09. ATUALIZAR OU REMOVER APÓS ESSE PERÍODO ===== -->
+<section class="indiv">
+  <div class="wrap">
+    <p class="eyebrow">Pra quem já está dentro</p>
+    <h2>Já garantiu sua inscrição individual?<br><span class="cyan">Você também concorre a prêmios.</span></h2>
+    <p class="lead">Não faz parte de um grupo? Sem problema: <strong>toda inscrição do Encontro também tem seus prêmios</strong>. As inscrições finalizadas até <strong>23:59 desta quarta-feira (02/09)</strong> concorrem ao sorteio de:</p>
+    <span class="prazo">Válido até 23:59 de 02/09</span>
+    <ul class="premios-ind">
+      <li>10 camisetas da VOLL</li>
+      <li>1 Kit de 4 equipamentos da Equipilates (R$ 27.000,00)</li>
+      <li>5 ingressos para a Jornada Sul-Americana de Pilates, em Gramado</li>
+      <li>3 ingressos do Encontro Nordestino, em Maceió</li>
+      <li>5 upgrades de ingresso do Encontro</li>
+      <li>3 acessos ao Pilates Legend</li>
+      <li>3 acessos ao Prêmio Contrology</li>
+      <li>3 Free Pass da VOLL: acesso a todos os eventos VOLL Brasil</li>
+      <li>10 vagas em Master Class exclusiva</li>
+      <li>Visita ao backstage e à sala dos palestrantes</li>
+      <li>4 ingressos cortesia para você presentear alguém</li>
+      <li>3 Kits VIP de boas-vindas</li>
+      <li>10 acessos de 6 meses da VOLL+ com 22 cursos da VOLL</li>
+    </ul>
+    <p class="nota-promo">Todos os sorteios serão divulgados dia <strong>07/09</strong> no portal.grupovoll.com.br, exceto os equipamentos, que serão revelados na abertura do Encontro 2027.</p>
+  </div>
+</section>
+
 <section class="faq">
   <div class="wrap">
     <p class="eyebrow"><span class="num">06</span>Perguntas frequentes</p>
     <h2>As dúvidas de quem entra num grupo</h2>
     <details open><summary>Eu preciso pagar pelos outros do grupo?</summary><p>Não. Cada pessoa compra e paga o próprio ingresso. Você só paga o seu.</p></details>
     <details><summary>Posso escolher qualquer ingresso (Standard, Premium ou VIP)?</summary><p>Pode. Cada um escolhe o ingresso que quiser. O desconto de 10% vale pra qualquer categoria, e todos contam do mesmo jeito pro tamanho do grupo.</p></details>
-    <details><summary>Como eu compro com o código do grupo?</summary><p>Quem organiza o grupo te passa o código. Na hora de comprar o ingresso, você usa esse código. Pronto: você já entra na contagem do grupo e ganha os prêmios.</p></details>
+    <details><summary>Como eu compro pelo link do grupo?</summary><p>Quem organiza o grupo te manda um link. Você abre o link, escolhe seu ingresso e compra normalmente — não precisa digitar código nenhum. Pronto: sua compra já entra na contagem do grupo automaticamente e você ganha os prêmios.</p></details>
     <details><summary>Se entrar mais gente depois que eu comprar, eu ganho os prêmios novos também?</summary><p>Sim! Quando o grupo cresce e libera novos prêmios, todo mundo ganha, inclusive quem comprou primeiro. Por isso vale a pena chamar mais gente.</p></details>
     <details><summary>Posso chamar mais pessoas pro grupo?</summary><p>Pode e deve. Quanto mais gente entrar, mais prêmios são liberados pra todos. Chame amigos de formação, colegas de trabalho e a galera da sua região.</p></details>
     <details><summary>E se alguém do grupo cancelar?</summary><p>O grupo é recalculado pelo total de pessoas confirmadas. Mais gente, mais prêmios; menos gente, menos prêmios.</p></details>
@@ -377,7 +415,8 @@ function render(n){
     const ok = n>=b.min; if(ok) on++;
     let txt = b.t;
     if(b.cortesia){ const c=cortesias(n); txt = ok ? (c+" ingresso"+(c>1?"s":"")+" Standard de cortesia") : "Ingressos Standard de cortesia"; }
-    g += `<div class="ben ${ok?"on":"off"}"><span class="chk">${ok?"✓":""}</span><span>${txt}${b.sorteio?'<span class="tag">Sorteio</span>':''}${!ok?'<span class="tag ok">a partir de '+b.min+'</span>':''}</span></div>`;
+    const nota = b.cortesia ? '<br><small style="color:var(--muted);font-weight:500">Essas cortesias vão para quem organiza o grupo, que decide o que fazer com elas (sortear, presentear, doar, etc.).</small>' : '';
+    g += `<div class="ben ${ok?"on":"off"}"><span class="chk">${ok?"✓":""}</span><span>${txt}${b.sorteio?'<span class="tag">Sorteio</span>':''}${!ok?'<span class="tag ok">a partir de '+b.min+'</span>':''}${nota}</span></div>`;
   });
   document.getElementById("lista-grupo").innerHTML = n<10
     ? '<div class="ben off"><span class="chk"></span><span>Chegando a 10 pessoas, o grupo abre e libera todos os prêmios abaixo.</span></div>'+g
