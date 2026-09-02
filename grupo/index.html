@@ -154,6 +154,8 @@ td .v{color:var(--green);font-size:18px;font-weight:900}
 .indiv .lead{color:var(--muted);font-size:17px;max-width:740px;margin-top:16px}
 .indiv .lead strong{color:var(--cyan)}
 .indiv .prazo{display:inline-block;margin-top:20px;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(226,166,60,.5);padding:9px 16px;border-radius:999px}
+.indiv .callout{margin-top:22px;background:rgba(226,166,60,.10);border:1px solid rgba(226,166,60,.45);border-radius:16px;padding:22px 26px;font-size:16px;font-weight:600;max-width:840px}
+.indiv .callout strong{color:var(--gold)}
 .premios-ind{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
 @media (max-width:760px){.premios-ind{grid-template-columns:1fr}}
 .premios-ind li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:15px;font-weight:600;display:flex;gap:12px;align-items:flex-start}
@@ -324,10 +326,13 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <!-- ===== SEÇÃO PROMO COM PRAZO: válida até 02/09, resultado 07/09. ATUALIZAR OU REMOVER APÓS ESSE PERÍODO ===== -->
 <section class="indiv">
   <div class="wrap">
-    <p class="eyebrow">Pra quem já está dentro</p>
-    <h2>Já garantiu sua inscrição individual?<br><span class="cyan">Você também concorre a prêmios.</span></h2>
-    <p class="lead">Não faz parte de um grupo? Sem problema: <strong>toda inscrição do Encontro também tem seus prêmios</strong>. As inscrições finalizadas até <strong>23:59 desta quarta-feira (02/09)</strong> concorrem ao sorteio de:</p>
-    <span class="prazo">Válido até 23:59 de 02/09</span>
+    <p class="eyebrow">Aviso só para quem já se inscreveu entre 26/08 e 02/09</p>
+    <h2>Você reservou seu ingresso individual<br><span class="cyan">entre os dias 26/08 e 02/09?</span></h2>
+    <div class="callout">
+      <strong>Leia com atenção:</strong> este aviso é <strong>SÓ para quem já comprou ou reservou o ingresso sozinho, entre 26/08 e 02/09</strong>. <strong>Isto NÃO faz parte dos prêmios do grupo.</strong> Se você está entrando por um grupo, os seus prêmios são os que aparecem lá em cima nesta página — <strong>os prêmios aqui de baixo NÃO são um bônus a mais pra quem compra no grupo</strong>. É um sorteio separado, só das inscrições individuais feitas nesse período.
+    </div>
+    <p class="lead">Pra não ter erro, de novo: <strong>se você já se inscreveu sozinho entre 26/08 e 02/09</strong>, você concorre ao sorteio abaixo. <strong>Se você vai entrar num grupo</strong>, pode ignorar esta parte — os seus prêmios são os do grupo, mostrados mais acima. As inscrições individuais finalizadas até <strong>23:59 de 02/09</strong> concorrem ao sorteio de:</p>
+    <span class="prazo">Só para inscrições individuais de 26/08 a 02/09</span>
     <ul class="premios-ind">
       <li>10 camisetas da VOLL</li>
       <li>1 Kit de 4 equipamentos da Equipilates (R$ 27.000,00)</li>
