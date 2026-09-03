@@ -210,6 +210,18 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .legal{border-top:1px solid var(--line);padding:26px 0 4px;margin-top:26px}
 .legal p{max-width:900px;margin:0 auto;font-size:12px;line-height:1.7;color:#6E7699;text-align:center}
 .legal strong{color:#9AA2C4}
+/* exit pop-up */
+.exitpop{position:fixed;inset:0;z-index:999;display:none;align-items:center;justify-content:center;padding:20px}
+.exitpop.on{display:flex}
+.exit-bg{position:absolute;inset:0;background:rgba(4,6,20,.82);backdrop-filter:blur(3px)}
+.exit-box{position:relative;max-width:520px;width:100%;background:#0E1230;border:1px solid var(--purple2);border-radius:18px;padding:40px 32px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.5);animation:exitIn .28s ease}
+@keyframes exitIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.exit-box .eyebrow-pop{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.exit-box h3{font-size:clamp(24px,4vw,32px);font-weight:900;margin:12px 0 14px}
+.exit-box p{color:var(--muted);font-size:16px;line-height:1.6}
+.exit-box .exit-cta{margin-top:24px;display:inline-block}
+.exit-close{position:absolute;top:12px;right:16px;background:none;border:none;color:var(--muted);font-size:26px;line-height:1;cursor:pointer}
+@media (prefers-reduced-motion:reduce){.exit-box{animation:none}}
 </style>
 </head>
 <body>
@@ -439,6 +451,17 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </footer>
 
+<div class="exitpop" id="exitpop" aria-hidden="true">
+  <div class="exit-bg" data-close></div>
+  <div class="exit-box" role="dialog" aria-modal="true" aria-label="Aviso importante">
+    <button class="exit-close" aria-label="Fechar" data-close>&times;</button>
+    <p class="eyebrow-pop">Espera um segundo!</p>
+    <h3>Não perca a abertura dos grupos</h3>
+    <p>As inscrições em grupo abrem <strong>dia 10 de setembro, ao meio-dia</strong>. A campanha é por tempo e vagas limitados e <strong>pode encerrar sem aviso prévio</strong> — inclusive se as vagas esgotarem. Garanta o quanto antes a entrada do seu grupo.</p>
+    <a class="btn exit-cta" href="#calcular" data-close>Ver o que meu grupo ganha</a>
+  </div>
+</div>
+
 <script>
 const GRUPO = [
   {t:"10% de desconto em qualquer ingresso e boleto em até 10x", min:10},
@@ -532,6 +555,27 @@ GRUPO.forEach(b=>{
   });
   tb.innerHTML += `<tr><td>${b.t}${b.sorteio?'<span class="tag">Sorteio</span>':''}</td>${cells}</tr>`;
 });
+</script>
+
+<script>
+(function(){
+  var KEY="exitpop_grupo_v1", shown=false;
+  var modal=document.getElementById("exitpop");
+  function show(){
+    if(shown||localStorage.getItem(KEY)) return;
+    shown=true; localStorage.setItem(KEY,"1");
+    modal.classList.add("on"); modal.setAttribute("aria-hidden","false");
+  }
+  function hide(){ modal.classList.remove("on"); modal.setAttribute("aria-hidden","true"); }
+  document.addEventListener("mouseout", function(e){ if(e.clientY<=0 && !e.relatedTarget) show(); });
+  try{ history.pushState(null,"",location.href);
+    window.addEventListener("popstate", function(){
+      if(!localStorage.getItem(KEY)){ history.pushState(null,"",location.href); show(); }
+    });
+  }catch(e){}
+  modal.querySelectorAll("[data-close]").forEach(function(el){ el.addEventListener("click",hide); });
+  document.addEventListener("keydown", function(e){ if(e.key==="Escape") hide(); });
+})();
 </script>
 </body>
 </html>
