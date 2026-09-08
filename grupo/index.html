@@ -67,6 +67,21 @@ nav .badge-data{font-size:12px;font-weight:700;letter-spacing:.05em;text-transfo
 .icones div{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
 .icones i{width:10px;height:10px;border-radius:50%;background:var(--cyan);display:inline-block}
 
+/* valores */
+.valores{background:linear-gradient(180deg,#0E2E3A 0%,var(--bg) 100%)}
+.precos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+@media (max-width:860px){.precos{grid-template-columns:1fr}}
+.preco{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:32px 28px;display:flex;flex-direction:column}
+.preco.destaque{border-color:rgba(226,166,60,.55);background:linear-gradient(180deg,#251a06,var(--card))}
+.preco h3{font-size:28px;margin:10px 0 18px}
+.selo-desc{display:inline-block;align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#052a1f;background:var(--green);padding:6px 12px;border-radius:999px}
+.preco .linha{padding:16px 0 0;margin-top:16px;border-top:1px solid var(--line)}
+.preco .rotulo{display:block;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.preco .de{display:block;font-size:15px;color:var(--muted);text-decoration:line-through;text-decoration-thickness:1.5px}
+.preco .por{display:block;font-size:clamp(26px,3vw,32px);font-weight:900;color:var(--green);line-height:1.15;margin-top:4px}
+.precos-nota{margin-top:28px;color:var(--muted);font-size:15px;max-width:760px}
+.precos-nota strong{color:#fff}
+
 /* frase-chave repetida */
 .mantra{margin-top:44px;background:linear-gradient(90deg,rgba(107,61,245,.35),rgba(79,224,232,.18));border:1px solid var(--line);border-radius:18px;padding:26px 30px;font-size:18px;font-weight:600}
 .mantra strong{color:var(--cyan)}
@@ -223,12 +238,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <section class="hero">
   <div class="wrap">
     <p class="eyebrow">Página do integrante do grupo · 27, 28 e 29 de agosto de 2027 · Expo Dom Pedro, Campinas</p>
-    <h1>ALGUÉM MONTOU UM GRUPO E TE CHAMOU.<br><span class="cyan">VEJA TUDO O QUE VOCÊ GANHA POR ISSO.</span></h1>
-    <p class="sub">Alguém da sua turma montou um grupo pra ir ao Encontro e te chamou. Fazer parte é simples: <strong>você compra o seu ingresso</strong> normalmente e, por estar no grupo, ganha desconto, uma <strong>Master Class exclusiva</strong>, sorteios e muito mais. E o melhor: <strong>quanto mais gente entra no grupo, mais TODO MUNDO ganha, inclusive você.</strong></p>
+    <h1>ALGUÉM MONTOU UM GRUPO E TE CHAMOU.<br><span class="cyan">VEJA QUANTO VOCÊ PAGA E O QUE GANHA.</span></h1>
+    <p class="sub">Alguém da sua turma montou um grupo e te chamou. <strong>Você compra o seu ingresso</strong>, com 10% de desconto, e ainda entra nos prêmios do grupo.</p>
     <div class="abre-badge">As inscrições em grupo abrem <span>dia 10 de setembro, ao meio-dia</span>. É a partir desse horário que dá pra comprar pelo link do grupo.</div>
     <div class="acoes">
-      <a class="btn" href="#calcular">Ver o que meu grupo já ganhou</a>
-      <span class="nota">Role a página ou clique acima. É rapidinho de entender.</span>
+      <a class="btn" href="#valores">Ver quanto você paga no grupo</a>
+      <span class="nota">Primeiro o preço. Depois, o que o grupo libera.</span>
     </div>
     <div class="icones">
       <div><i></i>Cada um compra o seu</div>
@@ -240,42 +255,61 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </section>
 
-<section>
+<section class="valores" id="valores">
   <div class="wrap">
-    <p class="eyebrow"><span class="num">01</span>O mais importante de tudo</p>
-    <h2>Só existe uma regra pra entender:<br><span class="cyan">quanto mais gente no grupo, mais cada um ganha.</span></h2>
-    <div class="mantra">Você <strong>não paga pelos outros</strong> e ninguém paga por você. Cada pessoa compra o próprio ingresso. O que muda é: a cada nova pessoa que entra no grupo, <strong>novos prêmios são liberados pra todo mundo</strong> — e você recebe também, mesmo que já tenha comprado.</div>
-  </div>
-</section>
-
-<section class="dobra-teal">
-  <div class="wrap">
-    <p class="eyebrow"><span class="num">02</span>Como funciona pra você</p>
-    <h2>Três passos. Só isso.<br><span class="cyan">Não tem segredo nenhum.</span></h2>
-    <div class="passos">
-      <div class="passo">
-        <div class="n">1</div>
-        <h3>Compre seu ingresso pelo link do grupo</h3>
-        <p>As inscrições em grupo abrem <strong>dia 10 de setembro, ao meio-dia</strong>. A partir daí, quem organiza o grupo te manda um <strong>link do grupo</strong>. Você compra o seu ingresso por esse link — <strong>não precisa digitar código nenhum</strong>. Pode ser Standard, Premium ou VIP: <strong>você escolhe o seu</strong> e ainda ganha 10% de desconto.</p>
-      </div>
-      <div class="passo">
-        <div class="n">2</div>
-        <h3>Você paga só o SEU ingresso</h3>
-        <p>Ninguém precisa adiantar dinheiro por ninguém. <strong>Cada pessoa paga o próprio ingresso.</strong> Simples assim.</p>
-      </div>
-      <div class="passo">
-        <div class="n">3</div>
-        <h3>A cada pessoa nova, o grupo ganha mais</h3>
-        <p>Quando o grupo passa de 10, de 20, de 30 e de 40 pessoas, <strong>novos prêmios são liberados pra todos</strong> — inclusive pra quem comprou primeiro. Por isso vale a pena chamar mais gente.</p>
-      </div>
+    <p class="eyebrow"><span class="num">01</span>Quanto você paga</p>
+    <h2>O preço do ingresso no grupo.<br><span class="cyan">10% a menos, em qualquer categoria.</span></h2>
+    <div class="precos">
+      <article class="preco">
+        <span class="selo-desc">10% de desconto do grupo</span>
+        <h3>Standard</h3>
+        <div class="linha">
+          <span class="rotulo">12x</span>
+          <span class="de">R$ 99</span>
+          <span class="por">R$ 89,10</span>
+        </div>
+        <div class="linha">
+          <span class="rotulo">À vista</span>
+          <span class="de">R$ 997</span>
+          <span class="por">R$ 897,30</span>
+        </div>
+      </article>
+      <article class="preco">
+        <span class="selo-desc">10% de desconto do grupo</span>
+        <h3>Premium</h3>
+        <div class="linha">
+          <span class="rotulo">12x</span>
+          <span class="de">R$ 199</span>
+          <span class="por">R$ 179,10</span>
+        </div>
+        <div class="linha">
+          <span class="rotulo">À vista</span>
+          <span class="de">R$ 1.990</span>
+          <span class="por">R$ 1.791</span>
+        </div>
+      </article>
+      <article class="preco destaque">
+        <span class="selo-desc">10% de desconto do grupo</span>
+        <h3>VIP</h3>
+        <div class="linha">
+          <span class="rotulo">12x</span>
+          <span class="de">R$ 399</span>
+          <span class="por">R$ 359,10</span>
+        </div>
+        <div class="linha">
+          <span class="rotulo">À vista</span>
+          <span class="de">R$ 3.900</span>
+          <span class="por">R$ 3.510</span>
+        </div>
+      </article>
     </div>
-    <div class="mantra">Resumindo de novo, porque é o que mais importa: <strong>cada um compra o seu, e quanto mais gente entrar, mais prêmios pra todo o grupo.</strong></div>
+    <p class="precos-nota">Você escolhe a categoria. <strong>Cada pessoa paga o próprio ingresso.</strong> O desconto vale a partir do dia 10 de setembro, pelo link do grupo.</p>
   </div>
 </section>
 
 <section class="sim" id="calcular">
   <div class="wrap">
-    <p class="eyebrow"><span class="num">03</span>Descubra o que seu grupo já ganhou</p>
+    <p class="eyebrow"><span class="num">02</span>Descubra o que seu grupo já ganhou</p>
     <h2>Escreva quantas pessoas já tem no seu grupo<br><span class="cyan">e veja na hora o que vocês desbloquearam.</span></h2>
     <p class="sim-intro">É só <strong>digitar o número de pessoas</strong> do seu grupo no campo abaixo. Os prêmios verdes com o ✓ já estão liberados. Os apagados ainda não — falta chamar mais gente pra desbloquear.</p>
     <div class="sim-box">
@@ -311,7 +345,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section class="mc">
   <div class="wrap">
-    <p class="eyebrow"><span class="num">04</span>O melhor prêmio do grupo</p>
+    <p class="eyebrow"><span class="num">03</span>O melhor prêmio do grupo</p>
     <h2>Uma sala fechada. Sua turma.<br><span class="cyan">E um palestrante do Encontro só pra vocês.</span></h2>
     <div class="mc-grid">
       <div>
@@ -327,7 +361,40 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section>
   <div class="wrap">
-    <p class="eyebrow"><span class="num">05</span>Tabela completa</p>
+    <p class="eyebrow"><span class="num">04</span>O mais importante de tudo</p>
+    <h2>Só existe uma regra pra entender:<br><span class="cyan">quanto mais gente no grupo, mais cada um ganha.</span></h2>
+    <div class="mantra">Você <strong>não paga pelos outros</strong> e ninguém paga por você. Cada pessoa compra o próprio ingresso. O que muda é: a cada nova pessoa que entra no grupo, <strong>novos prêmios são liberados pra todo mundo</strong> — e você recebe também, mesmo que já tenha comprado.</div>
+  </div>
+</section>
+
+<section class="dobra-teal">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">05</span>Como funciona pra você</p>
+    <h2>Três passos. Só isso.<br><span class="cyan">Não tem segredo nenhum.</span></h2>
+    <div class="passos">
+      <div class="passo">
+        <div class="n">1</div>
+        <h3>Compre seu ingresso pelo link do grupo</h3>
+        <p>As inscrições em grupo abrem <strong>dia 10 de setembro, ao meio-dia</strong>. A partir daí, quem organiza o grupo te manda um <strong>link do grupo</strong>. Você compra o seu ingresso por esse link — <strong>não precisa digitar código nenhum</strong>. Pode ser Standard, Premium ou VIP: <strong>você escolhe o seu</strong> e ainda ganha 10% de desconto.</p>
+      </div>
+      <div class="passo">
+        <div class="n">2</div>
+        <h3>Você paga só o SEU ingresso</h3>
+        <p>Ninguém precisa adiantar dinheiro por ninguém. <strong>Cada pessoa paga o próprio ingresso.</strong> Simples assim.</p>
+      </div>
+      <div class="passo">
+        <div class="n">3</div>
+        <h3>A cada pessoa nova, o grupo ganha mais</h3>
+        <p>Quando o grupo passa de 10, de 20, de 30 e de 40 pessoas, <strong>novos prêmios são liberados pra todos</strong> — inclusive pra quem comprou primeiro. Por isso vale a pena chamar mais gente.</p>
+      </div>
+    </div>
+    <div class="mantra">Resumindo de novo, porque é o que mais importa: <strong>cada um compra o seu, e quanto mais gente entrar, mais prêmios pra todo o grupo.</strong></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">06</span>Tabela completa</p>
     <h2>Tudo o que o grupo ganha,<br><span class="cyan">degrau por degrau.</span></h2>
     <div class="tabela-wrap">
       <table>
@@ -372,7 +439,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section class="faq">
   <div class="wrap">
-    <p class="eyebrow"><span class="num">06</span>Perguntas frequentes</p>
+    <p class="eyebrow"><span class="num">07</span>Perguntas frequentes</p>
     <h2>As dúvidas de quem entra num grupo</h2>
     <details open><summary>Quando abrem as inscrições em grupo?</summary><p>Dia <strong>10 de setembro, ao meio-dia</strong>. É a partir desse horário que o link do grupo funciona e vocês podem começar a comprar os ingressos.</p></details>
     <details><summary>Já comprei meu ingresso sozinho, por fora do grupo. Posso entrar no grupo agora?</summary><p><strong>Não.</strong> Só entram no grupo as inscrições feitas pelo link do grupo. Quem comprou por fora (inscrição individual) não entra na contagem do grupo e não recebe os prêmios do grupo. Para ter os benefícios de grupo, a compra precisa ser feita pelo link do grupo, a partir do dia 10 de setembro, ao meio-dia.</p></details>
