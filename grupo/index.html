@@ -65,6 +65,24 @@ nav .badge-data{font-size:12px;font-weight:700;letter-spacing:.05em;text-transfo
 .abre-badge{display:block;margin-top:18px;background:rgba(95,227,192,.12);border:1px solid rgba(95,227,192,.5);color:var(--green);font-weight:800;font-size:clamp(15px,2vw,18px);padding:12px 18px;border-radius:14px;max-width:620px}
 .abre-badge span{color:#fff}
 
+/* planos */
+.planos{background:linear-gradient(180deg,#121838 0%,var(--bg) 100%);padding-top:48px}
+@media (max-width:760px){.planos{padding-top:28px}}
+.hero + .planos{border-top:none}
+.planos h2{font-size:clamp(32px,5.5vw,58px);margin-top:4px}
+.planos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+@media (max-width:860px){.planos-grid{grid-template-columns:1fr}}
+.plano{background:#141B48;border:2px solid rgba(79,224,232,.35);border-radius:24px;padding:28px 24px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.plano.premium{border-color:rgba(95,227,192,.45)}
+.plano.vip{border-color:rgba(226,166,60,.7);background:linear-gradient(180deg,#2a1e08,#141B48)}
+.plano h3{font-size:clamp(26px,3.5vw,34px);margin-bottom:14px}
+.plano.premium h3{color:var(--green)}
+.plano.vip h3{color:var(--gold)}
+.plano p{color:var(--muted);font-size:16px;line-height:1.65}
+.plano p strong{color:#fff}
+.planos-foto{margin-top:40px;border-radius:18px;overflow:auto;border:1px solid var(--line);background:#0A0F2C;-webkit-overflow-scrolling:touch}
+.planos-foto img{display:block;width:100%;height:auto}
+
 /* valores */
 .valores{background:
   radial-gradient(900px 480px at 50% 0%, rgba(79,224,232,.22), transparent 55%),
@@ -72,7 +90,6 @@ nav .badge-data{font-size:12px;font-weight:700;letter-spacing:.05em;text-transfo
   linear-gradient(180deg,#0E2E3A 0%,var(--bg) 100%);
   padding-top:56px}
 @media (max-width:760px){.valores{padding-top:28px}}
-.hero + .valores{border-top:none}
 .valores h2{font-size:clamp(32px,5.5vw,58px);margin-top:4px}
 .precos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
 @media (max-width:860px){.precos{grid-template-columns:1fr}}
@@ -254,9 +271,33 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </section>
 
+<section class="planos" id="planos">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">01</span>Você já decidiu qual ingresso escolher?</p>
+    <h2>Compare os ingressos</h2>
+    <div class="planos-grid">
+      <article class="plano">
+        <h3>Standard</h3>
+        <p>É o congresso completo. Abertura, palestras, painel com os palestrantes, 4 workshops à sua escolha, aulão de Mat, sala Novos Talentos, Expo Pilates, encerramento e kit do congressista. Certificado digital. <strong>É o ingresso pra quem quer viver o evento inteiro sem nada de extra.</strong></p>
+      </article>
+      <article class="plano premium">
+        <h3>Premium</h3>
+        <p>Tudo do Standard, mais três coisas que mudam a experiência: assento marcado à frente na abertura e no encerramento, escolha prioritária dos workshops (você escolhe antes de todo mundo, então pega os que quer antes de lotar), e entrada no Prêmio Contrology com a festa. Ainda tem a mesa redonda de sexta e certificado físico e digital.</p>
+      </article>
+      <article class="plano vip">
+        <h3>VIP</h3>
+        <p>Tudo do Premium, mais o que ninguém mais tem. Entrada livre em todas as salas, sem precisar escolher 4 workshops. O Pilates Legend na quinta, um dia inteiro fechado só pros VIPs com Thalyssa Larangeiras, Federico Randazzo e Gloria Gasperi. Aula prática com os palestrantes, welcome drink e coffee com eles, lounge VIP de descanso, área VIP na festa, melhor lugar da frente e kit VIP.</p>
+      </article>
+    </div>
+    <div class="planos-foto">
+      <img src="/comparativo-ingressos.png" alt="Tabela de benefícios: o que entra no Standard, no Premium e no VIP">
+    </div>
+  </div>
+</section>
+
 <section class="valores" id="valores">
   <div class="wrap">
-    <p class="eyebrow"><span class="num">01</span>Quanto você paga</p>
+    <p class="eyebrow"><span class="num">02</span>Quanto você paga</p>
     <h2>O preço do ingresso no grupo.<br><span class="cyan">10% a menos, em qualquer categoria.</span></h2>
     <div class="precos">
       <article class="preco">
@@ -326,7 +367,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section class="sim" id="calcular">
   <div class="wrap">
-    <p class="eyebrow"><span class="num">02</span>Descubra o que seu grupo já ganhou</p>
+    <p class="eyebrow"><span class="num">03</span>Descubra o que seu grupo já ganhou</p>
     <h2>Escreva quantas pessoas já tem no seu grupo<br><span class="cyan">e veja na hora o que vocês desbloquearam.</span></h2>
     <p class="sim-intro">É só <strong>digitar o número de pessoas</strong> do seu grupo no campo abaixo. Os prêmios verdes com o ✓ já estão liberados. Os apagados ainda não — falta chamar mais gente pra desbloquear.</p>
     <div class="sim-box">
@@ -362,7 +403,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section class="mc">
   <div class="wrap">
-    <p class="eyebrow"><span class="num">03</span>O melhor prêmio do grupo</p>
+    <p class="eyebrow"><span class="num">04</span>O melhor prêmio do grupo</p>
     <h2>Uma sala fechada. Sua turma.<br><span class="cyan">E um palestrante do Encontro só pra vocês.</span></h2>
     <div class="mc-grid">
       <div>
@@ -378,7 +419,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section>
   <div class="wrap">
-    <p class="eyebrow"><span class="num">04</span>O mais importante de tudo</p>
+    <p class="eyebrow"><span class="num">05</span>O mais importante de tudo</p>
     <h2>Só existe uma regra pra entender:<br><span class="cyan">quanto mais gente no grupo, mais cada um ganha.</span></h2>
     <div class="mantra">Você <strong>não paga pelos outros</strong> e ninguém paga por você. Cada pessoa compra o próprio ingresso. O que muda é: a cada nova pessoa que entra no grupo, <strong>novos prêmios são liberados pra todo mundo</strong> — e você recebe também, mesmo que já tenha comprado.</div>
   </div>
@@ -386,7 +427,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section class="dobra-teal">
   <div class="wrap">
-    <p class="eyebrow"><span class="num">05</span>Como funciona pra você</p>
+    <p class="eyebrow"><span class="num">06</span>Como funciona pra você</p>
     <h2>Três passos. Só isso.<br><span class="cyan">Não tem segredo nenhum.</span></h2>
     <div class="passos">
       <div class="passo">
@@ -411,7 +452,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section>
   <div class="wrap">
-    <p class="eyebrow"><span class="num">06</span>Tabela completa</p>
+    <p class="eyebrow"><span class="num">07</span>Tabela completa</p>
     <h2>Tudo o que o grupo ganha,<br><span class="cyan">degrau por degrau.</span></h2>
     <div class="tabela-wrap">
       <table>
@@ -456,7 +497,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section class="faq">
   <div class="wrap">
-    <p class="eyebrow"><span class="num">07</span>Perguntas frequentes</p>
+    <p class="eyebrow"><span class="num">08</span>Perguntas frequentes</p>
     <h2>As dúvidas de quem entra num grupo</h2>
     <details open><summary>Quando abrem as inscrições em grupo?</summary><p>Dia <strong>10 de setembro, ao meio-dia</strong>. É a partir desse horário que o link do grupo funciona e vocês podem começar a comprar os ingressos.</p></details>
     <details><summary>Já comprei meu ingresso sozinho, por fora do grupo. Posso entrar no grupo agora?</summary><p><strong>Não.</strong> Só entram no grupo as inscrições feitas pelo link do grupo. Quem comprou por fora (inscrição individual) não entra na contagem do grupo e não recebe os prêmios do grupo. Para ter os benefícios de grupo, a compra precisa ser feita pelo link do grupo, a partir do dia 10 de setembro, ao meio-dia.</p></details>
