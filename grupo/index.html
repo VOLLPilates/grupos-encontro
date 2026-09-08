@@ -46,16 +46,40 @@ section + section{border-top:1px solid var(--line)}
 /* nav */
 nav{position:sticky;top:0;z-index:20;background:rgba(10,13,36,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;justify-content:space-between;align-items:center;height:70px;gap:14px}
-nav .logo{font-weight:900;font-size:18px}
+nav .logo{font-weight:900;font-size:18px;min-width:0}
 nav .logo span{color:var(--cyan)}
-nav .badge-data{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--green);border:1px solid rgba(95,227,192,.5);padding:9px 16px;border-radius:999px;white-space:nowrap}
+nav .logo-short{display:none}
+nav .badge-data{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--green);border:1px solid rgba(95,227,192,.5);padding:9px 16px;border-radius:999px;white-space:nowrap;flex-shrink:0}
+nav .badge-short{display:none}
+@media (max-width:760px){
+  nav .wrap{height:auto;min-height:56px;padding:10px 0;gap:10px}
+  nav .logo{font-size:15px;line-height:1.2}
+  nav .logo-full{display:none}
+  nav .logo-short{display:inline}
+  nav .badge-data{font-size:11px;padding:7px 12px}
+  nav .badge-full{display:none}
+  nav .badge-short{display:inline}
+}
 
 /* planos */
 .planos{background:linear-gradient(180deg,#121838 0%,var(--bg) 100%);padding-top:48px;border-top:none}
 @media (max-width:760px){.planos{padding-top:28px}}
 .planos h2{font-size:clamp(32px,5.5vw,58px);margin-top:4px}
 .planos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
-@media (max-width:860px){.planos-grid{grid-template-columns:1fr}}
+.planos-aviso{display:none;margin:16px 0 0;color:var(--cyan);font-weight:700;font-size:14px}
+@media (max-width:860px){
+  .planos-aviso{display:block}
+  .planos-grid{
+    display:flex;
+    overflow-x:auto;
+    gap:14px;
+    margin-top:16px;
+    padding:4px 4px 16px;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+  }
+  .plano{flex:0 0 82%;scroll-snap-align:start;padding:22px 18px}
+}
 .plano{background:#141B48;border:2px solid rgba(79,224,232,.35);border-radius:24px;padding:28px 24px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
 .plano.premium{border-color:rgba(95,227,192,.45)}
 .plano.vip{border-color:rgba(226,166,60,.7);background:linear-gradient(180deg,#2a1e08,#141B48)}
@@ -271,8 +295,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <nav>
   <div class="wrap">
-    <div class="logo">12º Encontro Brasileiro de Pilates <span>| Meu Grupo</span></div>
-    <span class="badge-data">Inscrições em grupo: 10/09, ao meio-dia</span>
+    <div class="logo"><span class="logo-full">12º Encontro Brasileiro de Pilates </span><span class="logo-short">Encontro </span><span>| Meu Grupo</span></div>
+    <span class="badge-data"><span class="badge-full">Inscrições em grupo: 10/09, ao meio-dia</span><span class="badge-short">Grupos · 10/09, 12h</span></span>
   </div>
 </nav>
 
@@ -280,6 +304,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="wrap">
     <p class="eyebrow"><span class="num">01</span>Você já decidiu qual ingresso escolher?</p>
     <h2>Compare os ingressos</h2>
+    <p class="planos-aviso">Deslize para o lado e veja Standard, Premium e VIP.</p>
     <div class="planos-grid">
       <article class="plano">
         <h3>Standard</h3>
