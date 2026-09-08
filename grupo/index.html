@@ -37,7 +37,6 @@ section{padding:104px 0;position:relative}
 section + section{border-top:1px solid var(--line)}
 @media (max-width:760px){section{padding:72px 0}}
 .eyebrow::before{content:"";display:block;width:56px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--purple),var(--cyan));margin-bottom:18px}
-.hero .eyebrow::before{display:none}
 .eyebrow .num{color:var(--cyan);font-weight:800;margin-right:12px;font-size:14px}
 .centro .eyebrow::before{margin-left:auto;margin-right:auto}
 .dobra-teal{background:linear-gradient(180deg,#0E2E3A 0%,var(--bg) 100%)}
@@ -51,24 +50,9 @@ nav .logo{font-weight:900;font-size:18px}
 nav .logo span{color:var(--cyan)}
 nav .badge-data{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--green);border:1px solid rgba(95,227,192,.5);padding:9px 16px;border-radius:999px;white-space:nowrap}
 
-/* hero */
-.hero{padding:56px 0 28px;background:
-  radial-gradient(900px 500px at 85% 10%, rgba(107,61,245,.35), transparent 60%),
-  radial-gradient(700px 400px at 10% 90%, rgba(79,224,232,.18), transparent 60%),
-  var(--bg);}
-@media (max-width:760px){.hero{padding:36px 0 16px}}
-.hero h1{font-size:clamp(28px,5vw,48px);max-width:820px}
-.hero p.sub{font-size:17px;color:var(--muted);max-width:640px;margin-top:14px;font-weight:500}
-.hero p.sub strong{color:#fff}
-.hero .acoes{margin-top:22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
-.hero .nota{font-size:14px;color:var(--muted)}
-.abre-badge{display:block;margin-top:18px;background:rgba(95,227,192,.12);border:1px solid rgba(95,227,192,.5);color:var(--green);font-weight:800;font-size:clamp(15px,2vw,18px);padding:12px 18px;border-radius:14px;max-width:620px}
-.abre-badge span{color:#fff}
-
 /* planos */
-.planos{background:linear-gradient(180deg,#121838 0%,var(--bg) 100%);padding-top:48px}
+.planos{background:linear-gradient(180deg,#121838 0%,var(--bg) 100%);padding-top:48px;border-top:none}
 @media (max-width:760px){.planos{padding-top:28px}}
-.hero + .planos{border-top:none}
 .planos h2{font-size:clamp(32px,5.5vw,58px);margin-top:4px}
 .planos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
 @media (max-width:860px){.planos-grid{grid-template-columns:1fr}}
@@ -80,17 +64,22 @@ nav .badge-data{font-size:12px;font-weight:700;letter-spacing:.05em;text-transfo
 .plano.vip h3{color:var(--gold)}
 .plano p{color:var(--muted);font-size:16px;line-height:1.65}
 .plano p strong{color:#fff}
-.comp-wrap{margin-top:40px;overflow-x:auto;border-radius:18px;border:1px solid var(--line);-webkit-overflow-scrolling:touch}
-table.comp{width:100%;border-collapse:collapse;min-width:920px;font-size:14px;background:#12163A}
+.comp-aviso{display:none;margin:28px 0 12px;padding:14px 16px;border-radius:12px;background:rgba(79,224,232,.12);border:1px solid rgba(79,224,232,.45);color:var(--cyan);font-weight:700;font-size:15px}
+.comp-wrap{margin-top:16px;overflow-x:auto;border-radius:18px;border:1px solid var(--line);-webkit-overflow-scrolling:touch}
+@media (max-width:860px){
+  .comp-aviso{display:block}
+  .comp-wrap{margin-top:0}
+  table.comp th:first-child,table.comp td:first-child{position:sticky;left:0;z-index:2;min-width:132px;box-shadow:6px 0 14px rgba(0,0,0,.35)}
+  table.comp thead th:first-child{z-index:3}
+}
+table.comp{width:100%;border-collapse:collapse;min-width:780px;font-size:14px;background:#12163A}
 table.comp th,table.comp td{padding:14px 12px;text-align:center;vertical-align:middle;border-top:1px solid rgba(255,255,255,.08)}
 table.comp th:first-child,table.comp td:first-child{text-align:left;font-weight:700;color:#fff;background:#1A1440;width:28%}
-table.comp thead th{padding:22px 14px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;font-size:18px;border-top:none;color:#fff}
-table.comp thead th:first-child{font-size:22px;letter-spacing:.12em;color:#B9A6F5;background:#2A1B5E;text-transform:uppercase}
+table.comp thead th{padding:18px 14px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;font-size:16px;border-top:none;color:#fff}
+table.comp thead th:first-child{font-size:18px;letter-spacing:.12em;color:#B9A6F5;background:#2A1B5E;text-transform:uppercase}
 table.comp thead th.st{background:#2EC4B6;color:#062824}
 table.comp thead th.pr{background:#1F8A70;color:#fff}
 table.comp thead th.vi{background:var(--gold);color:#1a1200}
-table.comp .preco-12{display:block;font-size:22px;font-weight:900;margin-top:8px;text-transform:none;letter-spacing:0}
-table.comp .preco-vista{display:block;font-size:12px;font-weight:700;margin-top:6px;text-transform:none;letter-spacing:0;opacity:.9}
 table.comp tbody td{color:#E6E9F5;font-weight:600;background:#161B42}
 table.comp tbody tr:nth-child(even) td{background:#1C2150}
 table.comp tbody tr:nth-child(even) td:first-child{background:#16103A}
@@ -287,19 +276,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </nav>
 
-<section class="hero">
-  <div class="wrap">
-    <p class="eyebrow">Página do integrante do grupo · 27, 28 e 29 de agosto de 2027 · Expo Dom Pedro, Campinas</p>
-    <h1>ALGUÉM MONTOU UM GRUPO E TE CHAMOU.<br><span class="cyan">VEJA QUANTO VOCÊ PAGA E O QUE GANHA.</span></h1>
-    <p class="sub">Alguém da sua turma montou um grupo e te chamou. <strong>Você compra o seu ingresso</strong>, com 10% de desconto, e ainda entra nos prêmios do grupo.</p>
-    <div class="abre-badge">As inscrições em grupo abrem <span>dia 10 de setembro, ao meio-dia</span>. É a partir desse horário que dá pra comprar pelo link do grupo.</div>
-    <div class="acoes">
-      <a class="btn" href="#valores">Ver quanto você paga no grupo</a>
-      <span class="nota">Primeiro o preço. Depois, o que o grupo libera.</span>
-    </div>
-  </div>
-</section>
-
 <section class="planos" id="planos">
   <div class="wrap">
     <p class="eyebrow"><span class="num">01</span>Você já decidiu qual ingresso escolher?</p>
@@ -318,14 +294,15 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <p>Tudo do Premium, mais o que ninguém mais tem. Entrada livre em todas as salas, sem precisar escolher 4 workshops. O Pilates Legend na quinta, um dia inteiro fechado só pros VIPs com Thalyssa Larangeiras, Federico Randazzo e Gloria Gasperi. Aula prática com os palestrantes, welcome drink e coffee com eles, lounge VIP de descanso, área VIP na festa, melhor lugar da frente e kit VIP.</p>
       </article>
     </div>
+    <p class="comp-aviso">No celular, arraste a tabela para o lado para ver Premium e VIP. O nome do benefício fica parado.</p>
     <div class="comp-wrap">
       <table class="comp">
         <thead>
           <tr>
             <th>Benefícios</th>
-            <th class="st">Standard<span class="preco-12">12x R$ 99</span><span class="preco-vista">R$ 997 à vista com desconto</span></th>
-            <th class="pr">Premium<span class="preco-12">12x R$ 199</span><span class="preco-vista">R$ 1.990 à vista com desconto</span></th>
-            <th class="vi">VIP<span class="preco-12">12x R$ 399</span><span class="preco-vista">R$ 3.900 à vista com desconto</span></th>
+            <th class="st">Standard</th>
+            <th class="pr">Premium</th>
+            <th class="vi">VIP</th>
           </tr>
         </thead>
         <tbody>
