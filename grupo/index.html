@@ -104,12 +104,20 @@ nav .badge-short{display:none}
 .preco h3{font-size:clamp(32px,4vw,40px);margin:12px 0 8px}
 .selo-desc{display:inline-block;align-self:flex-start;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#052a1f;background:var(--green);padding:7px 14px;border-radius:999px}
 .preco .linha{margin-top:12px;padding:16px 16px 14px;background:#0A0F2C;border:1px solid rgba(255,255,255,.12);border-radius:16px}
-.preco .rotulo{display:block;font-size:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;margin-bottom:8px}
-.preco .entrada{display:block;font-size:clamp(22px,3vw,28px);font-weight:900;color:var(--green);line-height:1.2;margin:2px 0 10px}
-.preco .de{display:block;font-size:14px;color:var(--muted);text-decoration:line-through;text-decoration-thickness:1.5px}
-.preco .por{display:block;font-size:clamp(30px,4vw,40px);font-weight:900;color:var(--green);line-height:1.1;margin-top:4px}
+.preco .rotulo{display:block;font-size:18px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:#fff;margin-bottom:8px}
+.preco .apoio{display:block;font-size:14px;font-weight:500;color:#fff;margin-bottom:10px}
+.preco .entrada{display:block;font-size:16px;font-weight:500;color:#fff;line-height:1.4;margin:2px 0 10px}
+.preco .entrada .num{font-size:clamp(22px,3vw,28px);font-weight:900;color:var(--green)}
+.preco .de{display:block;font-size:14px;font-weight:400;color:var(--muted);text-decoration:line-through;text-decoration-thickness:1.5px}
+.preco .por{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px;font-size:clamp(30px,4vw,40px);font-weight:500;color:var(--green);line-height:1.15;margin-top:4px}
+.preco .por .prefixo{font-size:16px;font-weight:500;color:#fff}
+.preco .por .num{font-weight:900}
+.preco .rs{font-size:.62em;font-weight:500;margin-right:.08em}
+.preco .de .rs{font-size:.75em}
+.preco .entrada .rs{font-size:clamp(14px,2vw,18px);font-weight:500;color:var(--green)}
 .preco .linha.pix{border-color:rgba(95,227,192,.5);background:linear-gradient(180deg,rgba(95,227,192,.12),#0A0F2C)}
 .selo-pix{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#052a1f;background:var(--green);padding:5px 10px;border-radius:999px;margin:0 0 8px}
+.pix-combo{display:block;font-size:13px;font-weight:500;color:#fff;margin:0 0 10px}
 .precos-nota{margin-top:28px;color:var(--muted);font-size:15px;max-width:760px}
 .precos-nota strong{color:#fff}
 
@@ -298,21 +306,23 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <h3>Standard</h3>
         <div class="linha">
           <span class="rotulo">Cartão</span>
-          <span class="de">12x R$ 99</span>
-          <span class="por">12x R$ 89,10</span>
+          <span class="de">12x <span class="rs">R$</span> 99</span>
+          <span class="por"><span class="prefixo">12x</span> <span class="rs">R$</span> <span class="num">89,10</span></span>
         </div>
         <div class="linha">
           <span class="rotulo">Boleto</span>
-          <span class="de">Entrada de R$ 100</span>
-          <span class="entrada">Entrada reduzida de R$ 90</span>
-          <span class="de">9x R$ 120,89</span>
-          <span class="por">9x R$ 108,80</span>
+          <span class="apoio">Entrada + 9 boletos</span>
+          <span class="de">Entrada de <span class="rs">R$</span> 100</span>
+          <span class="entrada">Entrada reduzida hoje de apenas <span class="rs">R$</span> <span class="num">90</span></span>
+          <span class="de">9 boletos de <span class="rs">R$</span> 120,89</span>
+          <span class="por"><span class="prefixo">+ 9 boletos de</span> <span class="rs">R$</span> <span class="num">108,80</span></span>
         </div>
         <div class="linha pix">
           <span class="rotulo">PIX</span>
-          <span class="selo-pix">Desconto ainda maior</span>
-          <span class="de">R$ 997</span>
-          <span class="por">R$ 897,30</span>
+          <span class="selo-pix">Melhor preço!</span>
+          <span class="pix-combo">Desconto de 10% + Desconto PIX</span>
+          <span class="de"><span class="rs">R$</span> 997</span>
+          <span class="por"><span class="rs">R$</span> <span class="num">897,30</span></span>
         </div>
       </article>
       <article class="preco">
@@ -320,21 +330,23 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <h3>Premium</h3>
         <div class="linha">
           <span class="rotulo">Cartão</span>
-          <span class="de">12x R$ 199</span>
-          <span class="por">12x R$ 179,10</span>
+          <span class="de">12x <span class="rs">R$</span> 199</span>
+          <span class="por"><span class="prefixo">12x</span> <span class="rs">R$</span> <span class="num">179,10</span></span>
         </div>
         <div class="linha">
           <span class="rotulo">Boleto</span>
-          <span class="de">Entrada de R$ 200</span>
-          <span class="entrada">Entrada reduzida de R$ 180</span>
-          <span class="de">9x R$ 243,11</span>
-          <span class="por">9x R$ 218,80</span>
+          <span class="apoio">Entrada + 9 boletos</span>
+          <span class="de">Entrada de <span class="rs">R$</span> 200</span>
+          <span class="entrada">Entrada reduzida hoje de apenas <span class="rs">R$</span> <span class="num">180</span></span>
+          <span class="de">9 boletos de <span class="rs">R$</span> 243,11</span>
+          <span class="por"><span class="prefixo">+ 9 boletos de</span> <span class="rs">R$</span> <span class="num">218,80</span></span>
         </div>
         <div class="linha pix">
           <span class="rotulo">PIX</span>
-          <span class="selo-pix">Desconto ainda maior</span>
-          <span class="de">R$ 1.990</span>
-          <span class="por">R$ 1.791</span>
+          <span class="selo-pix">Melhor preço!</span>
+          <span class="pix-combo">Desconto de 10% + Desconto PIX</span>
+          <span class="de"><span class="rs">R$</span> 1.990</span>
+          <span class="por"><span class="rs">R$</span> <span class="num">1.791</span></span>
         </div>
       </article>
       <article class="preco destaque">
@@ -342,21 +354,23 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <h3>VIP</h3>
         <div class="linha">
           <span class="rotulo">Cartão</span>
-          <span class="de">12x R$ 399</span>
-          <span class="por">12x R$ 359,10</span>
+          <span class="de">12x <span class="rs">R$</span> 399</span>
+          <span class="por"><span class="prefixo">12x</span> <span class="rs">R$</span> <span class="num">359,10</span></span>
         </div>
         <div class="linha">
           <span class="rotulo">Boleto</span>
-          <span class="de">Entrada de R$ 300</span>
-          <span class="entrada">Entrada reduzida de R$ 270</span>
-          <span class="de">9x R$ 498,67</span>
-          <span class="por">9x R$ 448,80</span>
+          <span class="apoio">Entrada + 9 boletos</span>
+          <span class="de">Entrada de <span class="rs">R$</span> 300</span>
+          <span class="entrada">Entrada reduzida hoje de apenas <span class="rs">R$</span> <span class="num">270</span></span>
+          <span class="de">9 boletos de <span class="rs">R$</span> 498,67</span>
+          <span class="por"><span class="prefixo">+ 9 boletos de</span> <span class="rs">R$</span> <span class="num">448,80</span></span>
         </div>
         <div class="linha pix">
           <span class="rotulo">PIX</span>
-          <span class="selo-pix">Desconto ainda maior</span>
-          <span class="de">R$ 3.900</span>
-          <span class="por">R$ 3.510</span>
+          <span class="selo-pix">Melhor preço!</span>
+          <span class="pix-combo">Desconto de 10% + Desconto PIX</span>
+          <span class="de"><span class="rs">R$</span> 3.900</span>
+          <span class="por"><span class="rs">R$</span> <span class="num">3.510</span></span>
         </div>
       </article>
     </div>
