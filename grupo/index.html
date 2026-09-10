@@ -105,9 +105,11 @@ nav .badge-short{display:none}
 .selo-desc{display:inline-block;align-self:flex-start;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#052a1f;background:var(--green);padding:7px 14px;border-radius:999px}
 .preco .linha{margin-top:12px;padding:16px 16px 14px;background:#0A0F2C;border:1px solid rgba(255,255,255,.12);border-radius:16px}
 .preco .rotulo{display:block;font-size:18px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;margin-bottom:8px}
-.preco .entrada{display:block;font-size:16px;font-weight:700;color:#fff;margin:2px 0 8px}
+.preco .entrada{display:block;font-size:clamp(22px,3vw,28px);font-weight:900;color:var(--green);line-height:1.2;margin:2px 0 10px}
 .preco .de{display:block;font-size:14px;color:var(--muted);text-decoration:line-through;text-decoration-thickness:1.5px}
 .preco .por{display:block;font-size:clamp(30px,4vw,40px);font-weight:900;color:var(--green);line-height:1.1;margin-top:4px}
+.preco .linha.pix{border-color:rgba(95,227,192,.5);background:linear-gradient(180deg,rgba(95,227,192,.12),#0A0F2C)}
+.selo-pix{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#052a1f;background:var(--green);padding:5px 10px;border-radius:999px;margin:0 0 8px}
 .precos-nota{margin-top:28px;color:var(--muted);font-size:15px;max-width:760px}
 .precos-nota strong{color:#fff}
 
@@ -300,16 +302,17 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           <span class="por">12x R$ 89,10</span>
         </div>
         <div class="linha">
-          <span class="rotulo">PIX</span>
-          <span class="de">R$ 997</span>
-          <span class="por">R$ 897,30</span>
-        </div>
-        <div class="linha">
           <span class="rotulo">Boleto</span>
           <span class="de">Entrada de R$ 100</span>
-          <span class="entrada">Entrada de R$ 90</span>
+          <span class="entrada">Entrada reduzida de R$ 90</span>
           <span class="de">9x R$ 120,89</span>
           <span class="por">9x R$ 108,80</span>
+        </div>
+        <div class="linha pix">
+          <span class="rotulo">PIX</span>
+          <span class="selo-pix">Desconto ainda maior</span>
+          <span class="de">R$ 997</span>
+          <span class="por">R$ 897,30</span>
         </div>
       </article>
       <article class="preco">
@@ -321,16 +324,17 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           <span class="por">12x R$ 179,10</span>
         </div>
         <div class="linha">
-          <span class="rotulo">PIX</span>
-          <span class="de">R$ 1.990</span>
-          <span class="por">R$ 1.791</span>
-        </div>
-        <div class="linha">
           <span class="rotulo">Boleto</span>
           <span class="de">Entrada de R$ 200</span>
-          <span class="entrada">Entrada de R$ 180</span>
+          <span class="entrada">Entrada reduzida de R$ 180</span>
           <span class="de">9x R$ 243,11</span>
           <span class="por">9x R$ 218,80</span>
+        </div>
+        <div class="linha pix">
+          <span class="rotulo">PIX</span>
+          <span class="selo-pix">Desconto ainda maior</span>
+          <span class="de">R$ 1.990</span>
+          <span class="por">R$ 1.791</span>
         </div>
       </article>
       <article class="preco destaque">
@@ -342,16 +346,17 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           <span class="por">12x R$ 359,10</span>
         </div>
         <div class="linha">
-          <span class="rotulo">PIX</span>
-          <span class="de">R$ 3.900</span>
-          <span class="por">R$ 3.510</span>
-        </div>
-        <div class="linha">
           <span class="rotulo">Boleto</span>
           <span class="de">Entrada de R$ 300</span>
-          <span class="entrada">Entrada de R$ 270</span>
+          <span class="entrada">Entrada reduzida de R$ 270</span>
           <span class="de">9x R$ 498,67</span>
           <span class="por">9x R$ 448,80</span>
+        </div>
+        <div class="linha pix">
+          <span class="rotulo">PIX</span>
+          <span class="selo-pix">Desconto ainda maior</span>
+          <span class="de">R$ 3.900</span>
+          <span class="por">R$ 3.510</span>
         </div>
       </article>
     </div>
