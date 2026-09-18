@@ -7,7 +7,9 @@ const dados = JSON.parse(readFileSync(join(raiz, "fonte", "dados-grupos-2027.jso
 const saida = join(raiz, "resultado-grupos");
 const cssHome = "estilos.css";
 const cssGrupo = "../../estilos.css";
+const cssTurma = "../../../estilos.css";
 const css404 = "resultado-grupos/estilos.css";
+const PRIMEIRO_40 = "visionarias-em-acao-dfb7eb";
 
 function esc(valor) {
   return String(valor ?? "")
@@ -52,6 +54,42 @@ function detalhesDaFaixa(beneficios, mapa) {
     .filter(({ teste }) => beneficios.some(teste))
     .map(({ chave }) => [chave, mapa[chave]])
     .filter(([, texto]) => texto);
+}
+
+function destaquePrimeiro40(grupo) {
+  if (grupo.slug !== PRIMEIRO_40) return "";
+  return `      <div class="marco">
+        <span class="selo">Primeiro grupo a 40</span>
+        <p>Este foi o primeiro grupo a chegar a 40 inscrições pagas. Por isso, vocês têm lugar marcado juntos na abertura e no encerramento.</p>
+      </div>
+`;
+}
+
+function listaNomes(pessoas, classe) {
+  if (!pessoas.length) return `          <li class="vazio">Ninguém nesta lista.</li>`;
+  return pessoas.map((m) => {
+    const cancelado = /cancelado/i.test(m.status || "");
+    const extra = classe === "nao-pago" && cancelado ? " cancelado" : "";
+    return `          <li class="pessoa ${classe}${extra}"><span class="nome">${esc(m.nome)}</span></li>`;
+  }).join("\n");
+}
+
+function blocoBeneficios(grupo, { esconderCortesia = false } = {}) {
+  const lista = esconderCortesia
+    ? grupo.beneficios_do_grupo.filter((b) => !/cortesia/i.test(b))
+    : grupo.beneficios_do_grupo;
+  const bens = lista.map((b) => {
+    const sorteio = ehSorteio(b, grupo.sorteios_a_realizar);
+    return `        <li${sorteio ? ' class="sorteio"' : ""}>${esc(b)}${sorteio ? '<span class="tag-sorteio">Sorteio</span>' : ""}</li>`;
+  }).join("\n");
+  const detalhes = detalhesDaFaixa(lista, dados.como_funciona_cada_beneficio);
+  const detalhesHtml = detalhes.map(([nome, texto]) => `        <article class="detalhe"><h3>${esc(nome)}</h3><p>${esc(texto)}</p></article>`).join("\n");
+  return `      <ul class="bens">
+${bens}
+      </ul>
+      ${detalhesHtml ? `<div class="detalhes">
+${detalhesHtml}
+      </div>` : ""}`;
 }
 
 function cabeca(titulo, noindex, cssHref) {
@@ -112,7 +150,6 @@ function paginaGrupo(grupo) {
   const pagos = grupo.membros.filter((m) => m.pago);
   const naoPagos = grupo.membros.filter((m) => !m.pago);
   const vinteMais = faixaVinteOuMais(grupo.faixa);
-  const detalhes = detalhesDaFaixa(grupo.beneficios_do_grupo, dados.como_funciona_cada_beneficio);
   const prazos = dados.prazos.map((item) => {
     const camiseta = /camiseta/i.test(item.o_que);
     const destaque = camiseta && vinteMais;
@@ -133,24 +170,7 @@ function paginaGrupo(grupo) {
     "Confirmar com o time VOLL a própria inscrição, conforme o benefício da faixa",
   ].filter(Boolean);
 
-  const listaPagos = pagos.length
-    ? pagos.map((m) => `          <li class="pessoa pago"><span class="nome">${esc(m.nome)}</span><span class="meta">${esc(m.plano || "Pago")}</span></li>`).join("\n")
-    : `          <li class="vazio">Nenhuma inscrição paga nesta lista.</li>`;
-
-  const listaNao = naoPagos.length
-    ? naoPagos.map((m) => {
-        const cancelado = /cancelado/i.test(m.status);
-        return `          <li class="pessoa ${cancelado ? "cancelado" : "nao-pago"}"><span class="nome">${esc(m.nome)}</span><span class="meta">${esc(m.status)}</span></li>`;
-      }).join("\n")
-    : `          <li class="vazio">Ninguém nesta lista.</li>`;
-
-  const bens = grupo.beneficios_do_grupo.map((b) => {
-    const sorteio = ehSorteio(b, grupo.sorteios_a_realizar);
-    return `        <li${sorteio ? ' class="sorteio"' : ""}>${esc(b)}${sorteio ? '<span class="tag-sorteio">Sorteio</span>' : ""}</li>`;
-  }).join("\n");
-
   const sorteios = grupo.sorteios_a_realizar.map((s) => `        <li>${esc(s)}</li>`).join("\n");
-  const detalhesHtml = detalhes.map(([nome, texto]) => `        <article class="detalhe"><h3>${esc(nome)}</h3><p>${esc(texto)}</p></article>`).join("\n");
   const dadosCortesia = dados.regras.dados_da_cortesia.map((d) => `<li>${esc(d)}</li>`).join("");
 
   return `${cabeca(`Grupo de ${grupo.lider.nome} | 12º Encontro Brasileiro de Pilates 2027`, true, cssGrupo)}  <header class="topo">
@@ -178,8 +198,12 @@ function paginaGrupo(grupo) {
           <span class="num">${esc(grupo.ingressos_cortesia)}</span>
         </article>
       </div>
-      <p class="aviso">As inscrições estão encerradas e a faixa do seu grupo está fechada.</p>
+${destaquePrimeiro40(grupo)}      <p class="aviso">As inscrições estão encerradas e a faixa do seu grupo está fechada.</p>
       ${grupo.totais.lider_conta_na_faixa ? '<p class="aviso pequeno">A contagem inclui a sua própria inscrição.</p>' : ""}
+      <div class="link-turma">
+        <p>Página para enviar ao grupo, sem a lista de quem não pagou e sem as tarefas que são só suas:</p>
+        <a href="turma/">Abrir a página da turma</a>
+      </div>
     </div>
   </section>
 
@@ -190,13 +214,13 @@ function paginaGrupo(grupo) {
         <div>
           <h3 class="lista-titulo">Pagos <span class="cont">${pagos.length}</span></h3>
           <ul class="pessoas pagos">
-${listaPagos}
+${listaNomes(pagos, "pago")}
           </ul>
         </div>
         <div>
           <h3 class="lista-titulo">Ainda não pagos <span class="cont">${naoPagos.length}</span></h3>
           <ul class="pessoas">
-${listaNao}
+${listaNomes(naoPagos, "nao-pago")}
           </ul>
           <p class="aviso">As inscrições estão encerradas. Quem não está pago não conta para a faixa do grupo e não participa dos sorteios.</p>
         </div>
@@ -207,12 +231,7 @@ ${listaNao}
   <section class="bloco">
     <div class="wrap">
       <h2>Benefícios do grupo</h2>
-      <ul class="bens">
-${bens}
-      </ul>
-      ${detalhesHtml ? `<div class="detalhes">
-${detalhesHtml}
-      </div>` : ""}
+${blocoBeneficios(grupo)}
     </div>
   </section>
 
@@ -274,6 +293,73 @@ ${prazos}
 ${rodape}`;
 }
 
+function paginaTurma(grupo) {
+  const pagos = grupo.membros.filter((m) => m.pago);
+  const vinteMais = faixaVinteOuMais(grupo.faixa);
+  const sorteios = grupo.sorteios_a_realizar.map((s) => `        <li>${esc(s)}</li>`).join("\n");
+
+  return `${cabeca(`Grupo de ${grupo.lider.nome} | 12º Encontro Brasileiro de Pilates 2027`, true, cssTurma)}  <header class="topo">
+    <div class="wrap">
+      <p class="marca">12º Encontro Brasileiro de Pilates</p>
+      <h1>Grupo de ${esc(grupo.lider.nome)}</h1>
+      <p class="sub">27, 28 e 29 de agosto de 2027 · Expo Dom Pedro, Campinas, SP</p>
+      <p class="atualizado">Atualizado em ${esc(formatarData(dados.atualizado_em))}</p>
+    </div>
+  </header>
+
+  <section class="bloco">
+    <div class="wrap">
+      <div class="numeros">
+        <article class="card-num">
+          <span class="rotulo">inscrições pagas</span>
+          <span class="num">${esc(grupo.totais.pagos_no_grupo)}</span>
+        </article>
+        <article class="card-num faixa">
+          <span class="rotulo">faixa alcançada</span>
+          <span class="num">${esc(grupo.faixa)}</span>
+        </article>
+      </div>
+${destaquePrimeiro40(grupo)}      <p class="aviso">As inscrições estão encerradas e a faixa do grupo está fechada.</p>
+    </div>
+  </section>
+
+  <section class="bloco">
+    <div class="wrap">
+      <h2>Quem está no grupo <span class="cont">${pagos.length}</span></h2>
+      <ul class="pessoas pagos">
+${listaNomes(pagos, "pago")}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bloco">
+    <div class="wrap">
+      <h2>O que o grupo conquistou</h2>
+${blocoBeneficios(grupo, { esconderCortesia: true })}
+    </div>
+  </section>
+
+  <section class="bloco">
+    <div class="wrap">
+      <h2>Sorteios do grupo <span class="cont">${grupo.sorteios_a_realizar.length}</span></h2>
+      <ul class="bens">
+${sorteios}
+      </ul>
+      <div class="regras">
+        <h3>Como funciona o sorteio</h3>
+        <ul>
+          <li>Acontece ao vivo, entre 3 e 4 de novembro de 2026, para todo o grupo ver.</li>
+          <li>Participa quem está com a inscrição paga.</li>
+          <li>Cada pessoa pode receber apenas um prêmio.</li>
+        </ul>
+      </div>
+      ${vinteMais ? '<p class="aviso">Se o líder pedir, informe o tamanho da camiseta: P, M ou G.</p>' : ""}
+    </div>
+  </section>
+
+${rodape}`;
+}
+
 mkdirSync(saida, { recursive: true });
 writeFileSync(join(saida, "index.html"), paginaHome());
 
@@ -284,13 +370,27 @@ mkdirSync(pastaGrupos, { recursive: true });
 for (const grupo of dados.grupos) {
   const pasta = join(pastaGrupos, grupo.slug);
   mkdirSync(pasta, { recursive: true });
-  const html = paginaGrupo(grupo);
-  if (html.includes(grupo.lider.email) || html.includes(grupo.lider.telefone)) {
-    throw new Error(`Vazou contato em ${grupo.slug}`);
+  const htmlLider = paginaGrupo(grupo);
+  const htmlTurma = paginaTurma(grupo);
+  for (const html of [htmlLider, htmlTurma]) {
+    if (html.includes(grupo.lider.email) || html.includes(grupo.lider.telefone)) {
+      throw new Error(`Vazou contato em ${grupo.slug}`);
+    }
   }
-  writeFileSync(join(pasta, "index.html"), html);
+  const naoPagos = grupo.membros.filter((m) => !m.pago);
+  for (const m of naoPagos) {
+    if (m.nome && htmlTurma.includes(m.nome)) {
+      throw new Error(`Turma de ${grupo.slug} mostra não pago: ${m.nome}`);
+    }
+  }
+  if (htmlTurma.includes("Checklist") || htmlTurma.includes("Seus benefícios como líder") || htmlTurma.includes("Ainda não pagos") || htmlTurma.includes("Dados exigidos")) {
+    throw new Error(`Turma de ${grupo.slug} tem conteúdo de líder`);
+  }
+  writeFileSync(join(pasta, "index.html"), htmlLider);
+  mkdirSync(join(pasta, "turma"), { recursive: true });
+  writeFileSync(join(pasta, "turma", "index.html"), htmlTurma);
 }
 
 writeFileSync(join(raiz, "404.html"), pagina404());
 
-console.log(`Geradas ${dados.grupos.length} páginas de grupo.`);
+console.log(`Geradas ${dados.grupos.length} páginas de líder e ${dados.grupos.length} páginas da turma.`);
